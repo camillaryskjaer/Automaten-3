@@ -13,16 +13,14 @@ namespace Automaten
             Console.WriteLine("---------------------------------------------------------------------------------\n");
             Console.WriteLine("                                    Vending machine");
             Console.WriteLine("\n---------------------------------------------------------------------------------");
-            Console.WriteLine("1. Cola");
-            Console.WriteLine("2. Mars bar");
-            Console.WriteLine("3. Fanta");
-            Console.WriteLine("4. sprite");
-            Console.WriteLine("5. BBQ Chips");
-            Console.WriteLine("6. Snickers");
+            Console.WriteLine("1. Cola - 15kr");
+            Console.WriteLine("2. Mars bar - 10kr");
+            Console.WriteLine("3. Fanta - 15kr");
+            Console.WriteLine("4. sprite - 15kr");
+            Console.WriteLine("5. BBQ Chips - 20kr");
+            Console.WriteLine("6. Snickers - 10kr");
+
         }
-        public void Test()
-        {
-            
-        }
+
     }
 }
