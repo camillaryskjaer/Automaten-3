@@ -6,10 +6,9 @@
         {
             GUI gui = new GUI();
             VendingMachine machine = new VendingMachine();
-            gui.Menu();
-
-            
-
+            Console.Clear();
+            gui.Menu(machine.snacks);
+            Thread.Sleep(1000);
         }
     }
 }
