@@ -10,7 +10,7 @@ namespace Automaten
     internal class GUI
     {
         private bool exit = false;
-        public void Menu(List<Product> snacks)
+        public void Menu(List<Product> products)
         {
             
             VendingMachine machine = new VendingMachine();
@@ -48,41 +48,37 @@ namespace Automaten
                         choice = Console.ReadKey();
                         break;
                     case ConsoleKey.D2:
+                        Console.WriteLine("Enter password: ");
+                        string adminPassword = Console.ReadLine();
+                        if (adminPassword == "1234")
+                        Console.WriteLine("---------------------------------------------------------------------------------\n");
+                        Console.WriteLine("                                        Admin Menu");
+                        Console.WriteLine("\n---------------------------------------------------------------------------------");
+                        Console.WriteLine("1. Restock");
+                        Console.WriteLine("2. take money");
+                        choice = Console.ReadKey();
+                        switch (choice.Key)
+                        {
+                            case ConsoleKey.D1:
+                                break;
+                            case ConsoleKey.D2:
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     case ConsoleKey.D3:
                         Console.Clear();
-                        machine.Stock(snacks);
-                        Thread.Sleep(2000);
+                        machine.Stock(products);
+                        Thread.Sleep(20000);
                         break;
                     case ConsoleKey.D4:
                         exit = true;
                         break;
                     default:
                         break;
-                }
-                switch (choice.Key)
-                {
-                    case ConsoleKey.D1:
-                        snacks.Remove(snacks[0]);
-                        break;
-                    case ConsoleKey.D2:
-                        snacks.Remove(snacks[1]);
-                        break;
-                    case ConsoleKey.D3:
-                        snacks.Remove(snacks[2]);
-                        break;
-                    case ConsoleKey.D4:
-                        snacks.Remove(snacks[3]);
-                        break;
-                    case ConsoleKey.D5:
-                        snacks.Remove(snacks[4]);
-                        break;
-                    case ConsoleKey.D6:
-                        snacks.Remove(snacks[5]);
-                        break;
-                    default:
-                        break;
-                }
+                }   
+                
             } while (exit != true);
         }
     }
