@@ -4,11 +4,8 @@
     {
         static void Main(string[] args)
         {
-            GUI gui = new GUI();
-            VendingMachine machine = new VendingMachine();
-            Console.Clear();
-            gui.Menu(machine.snacks);
-            Thread.Sleep(1000);
+            VendingMachine machine = new VendingMachine();            
+            machine.Test();
         }
     }
 }

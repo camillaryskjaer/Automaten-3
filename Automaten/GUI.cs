@@ -3,52 +3,87 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Automaten.Products;
 
 namespace Automaten
 {
     internal class GUI
     {
-        public void Menu(List<Snack> snacks)
+        private bool exit = false;
+        public void Menu(List<Product> snacks)
         {
-            Console.WriteLine("---------------------------------------------------------------------------------\n");
-            Console.WriteLine("                                    Vending machine");
-            Console.WriteLine("\n---------------------------------------------------------------------------------");
-            Console.WriteLine("1. buy an item");
-            Console.WriteLine("2. Contact admin");
-            Console.WriteLine("3. Show layer");
+            
+            VendingMachine machine = new VendingMachine();
 
-            ConsoleKeyInfo choice;
-            choice = Console.ReadKey();
-            switch (choice.Key)
+            do
             {
-                case ConsoleKey.D1:
-                    Console.Clear();
-                    Console.WriteLine("---------------------------------------------------------------------------------\n");
-                    Console.WriteLine("                                        Menu");
-                    Console.WriteLine("\n---------------------------------------------------------------------------------");
-                    Console.WriteLine("buy an item");
-                    Console.WriteLine("1. Cola - 15kr");
-                    Console.WriteLine("2. Mars bar - 10kr");
-                    Console.WriteLine("3. Fanta - 15kr");
-                    Console.WriteLine("4. sprite - 15kr");
-                    Console.WriteLine("5. BBQ Chips - 20kr");
-                    Console.WriteLine("6. Snickers - 10kr");
-                    Console.Write("Indtast et index nummner: ");
-                    choice = Console.ReadKey();
-                    break;
-                case ConsoleKey.D2:
-                    break;
-                case ConsoleKey.D3:
-                    break;
-                default:
-                    break;
-            }
-            switch (choice.Key)
-            {
-                case ConsoleKey.D1:
-                    snacks.Remove(snacks[1]);
-                    break;
-            }
+                Console.Clear();
+                Console.WriteLine("---------------------------------------------------------------------------------\n");
+                Console.WriteLine("                                    Vending machine");
+                Console.WriteLine("\n---------------------------------------------------------------------------------");
+                Console.WriteLine("1. buy an item");
+                Console.WriteLine("2. Contact admin");
+                Console.WriteLine("3. Show stock");
+                Console.WriteLine("4. Exit");
+                Console.Write("Enter an option: ");
+
+
+                ConsoleKeyInfo choice;
+                choice = Console.ReadKey();
+                switch (choice.Key)
+                {
+                    case ConsoleKey.D1:
+                        Console.Clear();
+                        Console.WriteLine("---------------------------------------------------------------------------------\n");
+                        Console.WriteLine("                                        Menu");
+                        Console.WriteLine("\n---------------------------------------------------------------------------------");
+                        Console.WriteLine("buy an item");
+                        Console.WriteLine("1. Cola - 15kr");
+                        Console.WriteLine("2. Mars bar - 10kr");
+                        Console.WriteLine("3. Fanta - 15kr");
+                        Console.WriteLine("4. sprite - 15kr");
+                        Console.WriteLine("5. BBQ Chips - 20kr");
+                        Console.WriteLine("6. Snickers - 10kr");
+                        Console.Write("Enter an option: ");
+                        choice = Console.ReadKey();
+                        break;
+                    case ConsoleKey.D2:
+                        break;
+                    case ConsoleKey.D3:
+                        Console.Clear();
+                        machine.Stock(snacks);
+                        Thread.Sleep(2000);
+                        break;
+                    case ConsoleKey.D4:
+                        exit = true;
+                        break;
+                    default:
+                        break;
+                }
+                switch (choice.Key)
+                {
+                    case ConsoleKey.D1:
+                        snacks.Remove(snacks[0]);
+                        break;
+                    case ConsoleKey.D2:
+                        snacks.Remove(snacks[1]);
+                        break;
+                    case ConsoleKey.D3:
+                        snacks.Remove(snacks[2]);
+                        break;
+                    case ConsoleKey.D4:
+                        snacks.Remove(snacks[3]);
+                        break;
+                    case ConsoleKey.D5:
+                        snacks.Remove(snacks[4]);
+                        break;
+                    case ConsoleKey.D6:
+                        snacks.Remove(snacks[5]);
+                        break;
+                    default:
+                        break;
+                }
+            } while (exit != true);
         }
     }
 }

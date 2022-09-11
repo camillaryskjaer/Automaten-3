@@ -1,35 +1,44 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Automaten.Products;
 
 namespace Automaten
 {
     internal class VendingMachine
     {
-        public List<Snack> snacks = new List<Snack>();
-        Snack cola = new Snack("Cola", 1, 15);
-        Snack mars = new Snack("Mars bar", 2, 10);
-        Snack fanta = new Snack("Fanta", 3, 15);
-        Snack sprite = new Snack("Sprite", 4, 15);
-        Snack chipsBBQ = new Snack("BBQ chips", 5, 20);
-        Snack snickers = new Snack("Snickers", 6, 10);
+        public List<Product> products = new List<Product>();
+        Product cola = new Drink("Cola", 1, 15);
+        Product mars = new Snack("Mars bar", 2, 10);
+        Product fanta = new Drink("Fanta", 3, 15);
+        Product sprite = new Drink("Sprite", 4, 15);
+        Product chipsBBQ = new Snack("BBQ chips", 5, 20);
+        Product snickers = new Snack("Snickers", 6, 10);
 
-        public void Test()
+        GUI gui = new GUI();
+
+        public void Stock(List<Product> products)
         {
-            snacks.Add(cola);
-            snacks.Add(mars);
-            snacks.Add(fanta);
-            snacks.Add(sprite);
-            snacks.Add(chipsBBQ);
-            snacks.Add(snickers);
-            foreach (Snack sn in snacks)
+            foreach (Product sn in products)
             {
-                Console.WriteLine("Item: " + sn.Item + "\nIndexNumber: " + sn.Index + "\nPrice: " + sn.Price);
+                Console.WriteLine("Item: " + sn.Item + "\nIndex: " + sn.Index + "\nPrice: " + sn.Price);
                 Console.WriteLine("");
             }
         }
-    }
+        public void Test()
+        {
+            products.Add(cola);
+            products.Add(fanta);
+            products.Add(sprite);
+            products.Add(chipsBBQ);
+            products.Add(snickers);
+            products.Add(mars);
 
+            gui.Menu(products);
+        }
+        
+    }
 }
