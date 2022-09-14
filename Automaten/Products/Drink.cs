@@ -8,6 +8,8 @@ namespace Automaten.Products
 {
     internal class Drink : Product
     {
+    
+    //HVad bruger du dette index til?
         public Drink(string item, byte index, int price)
         {
             this.item = item;
