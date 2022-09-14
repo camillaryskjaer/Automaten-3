@@ -18,12 +18,15 @@ namespace Automaten
         Product chipsBBQ = new Snack("BBQ chips", 5, 20);
         Product snickers = new Snack("Snickers", 6, 10);
 
+        //Din vendingmaskine må ikke kende til din UI
         GUI gui = new GUI();
 
         public void Stock(List<Product> products)
         {
             foreach (Product sn in products)
             {
+                
+                //Dette hører til i UI laget
                 Console.WriteLine("Item: " + sn.Item + "\nIndex: " + sn.Index + "\nPrice: " + sn.Price);
                 Console.WriteLine("");
             }
