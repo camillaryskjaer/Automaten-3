@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Automaten
 {
+    
+    //Husk at dine klasser skal navngives på engelsk
     internal class Penge
     {
         
